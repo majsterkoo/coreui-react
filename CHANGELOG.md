@@ -1,5 +1,8 @@
 ### [@coreui/react](https://coreui.io/) changelog
 
+##### `v2.1.3`
+- refactor: keyboard accessible Switch WiP
+
 ##### `v2.1.2`
 - refactor: remove `element-closest` dependency issue #37 #50
 - chore: update `core-js` to `2.6.1`

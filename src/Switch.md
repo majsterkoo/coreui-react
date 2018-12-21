@@ -13,8 +13,9 @@ value |
 disabled | `false`
 form | 
 name | 
-required | `false`
 onChange | 
+required | `false`
+role | `switch` 
 type | `checkbox`
 variant | `''`
 className | `switch`

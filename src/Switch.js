@@ -20,6 +20,7 @@ const propTypes = {
   name: PropTypes.string,
   required: PropTypes.bool,
   onChange: PropTypes.func,
+  role: PropTypes.oneOf(['switch', 'checkbox', 'radio']),
   type: PropTypes.oneOf(['checkbox', 'radio']),
   variant: PropTypes.oneOf(['', '3d', 'pill']),
   className: PropTypes.string,
@@ -36,6 +37,7 @@ const defaultProps = {
   defaultChecked: false,
   disabled: false,
   required: false,
+  role: 'switch',
   type: 'checkbox',
   variant: '',
   dataOn: 'On',
@@ -46,6 +48,8 @@ class AppSwitch extends Component {
   constructor(props) {
     super(props);
     this.onChange = this.onChange.bind(this);
+    this.onKeyboard = this.onKeyboard.bind(this);
+    this.input = React.createRef();
     this.state = {
       checked: this.props.defaultChecked || this.props.checked,
       selected: []
@@ -71,8 +75,23 @@ class AppSwitch extends Component {
     }
   }
 
+  onKeyboard(event) {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault()
+      event.stopPropagation()
+      const target = event.target.firstChild;
+      this.setState({
+        checked: !target.checked,
+      })
+
+      if (this.props.onChange) {
+        this.props.onChange(event);
+      }
+    }
+  }
+
   render() {
-    const { className, disabled, color, name, label, outline, size, required, type, value, dataOn, dataOff, variant, ...attributes } = this.props;
+    const { className, disabled, color, name, label, outline, size, required, role, type, value, dataOn, dataOff, variant, ...attributes } = this.props;
 
     delete attributes.checked
     delete attributes.defaultChecked
@@ -98,8 +117,20 @@ class AppSwitch extends Component {
     );
 
     return (
-      <label className={classes}>
-        <input type={type} className={inputClasses} onChange={this.onChange} checked={this.state.checked} name={name} required={required} disabled={disabled} value={value} {...attributes} />
+      <label className={classes} onKeyPress={this.onKeyboard} tabIndex={ disabled ? "-1" : "0" }>
+        <input ref={this.input}
+               type={type}
+               role={role}
+               aria-checked={this.state.checked}
+               className={inputClasses}
+               onChange={this.onChange}
+               checked={this.state.checked}
+               name={name}
+               value={value}
+               required={required}
+               disabled={disabled}
+               {...attributes}
+        />
         <span className={sliderClasses} data-checked={dataOn} data-unchecked={dataOff}></span>
       </label>
     );
