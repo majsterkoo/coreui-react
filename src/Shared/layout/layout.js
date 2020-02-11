@@ -1,17 +1,19 @@
 class LayoutHelper {
 
   static elClassList = document.body.classList;
+  static sidebarClassList = null;
 
   static sidebarToggle(toggle) {
-    const minimize = arguments.length ? toggle : !this.elClassList.contains('sidebar-minimized');
+    if(this.sidebarClassList === null) this.sidebarClassList = document.getElementById('sidebar').classList;
+    const minimize = arguments.length ? toggle : !this.elClassList.contains(/*'c-sidebar-minimized'*/'c-sidebar-unfoldable');
     this.sidebarMinimize(minimize);
-    this.brandMinimize(minimize);
+    //this.brandMinimize(minimize);
     this.sidebarPSToggle(!minimize);  /*remove PS on sidebar minimized*/
   }
 
   static sidebarMinimize(force) {
     // return this.elClassList.toggle('sidebar-minimized', force);
-    return this.toggleClass('sidebar-minimized', force);
+    return this.toggleSidebarClass(/*'c-sidebar-minimized'*/'c-sidebar-unfoldable', force);
   }
 
   static brandMinimize(force) {
@@ -46,6 +48,18 @@ class LayoutHelper {
     }
     return this.elClassList.contains(className);
   }
+
+  static toggleSidebarClass(className, force) {
+    if(force === true){
+      this.sidebarClassList.add(className);
+    } else if (force === false) {
+      this.sidebarClassList.remove(className);
+    } else {
+      this.sidebarClassList.toggle(className);
+    }
+    return this.sidebarClassList.contains(className);
+  }
+
 }
 
 export default LayoutHelper;

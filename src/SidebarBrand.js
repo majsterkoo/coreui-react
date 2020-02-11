@@ -12,10 +12,10 @@ const propTypes = {
 };
 
 const defaultProps = {
-  tag: 'a'
+  tag: 'div'
 };
 
-class AppNavbarBrand extends Component {
+class AppSidebarBrand extends Component {
   imgSrc(brand) {
     return brand.src ? brand.src : '';
   }
@@ -47,24 +47,28 @@ class AppNavbarBrand extends Component {
 
   render() {
     const { className, children, tag: Tag, ...attributes } = this.props;
-    const classes = classNames(className, 'navbar-brand');
+    const classes = classNames(className, 'c-sidebar-brand');
 
     const img = [];
     if (this.props.brand) {
       const props = this.props.brand;
-      const classBrand = 'navbar-brand';
+      const classBrand = 'c-sidebar-brand';
       img.push(this.navbarBrandImg(props, classBrand, img.length + 1));
     }
     if (this.props.full) {
       const props = this.props.full;
-      const classBrand = 'navbar-brand-full';
+      const classBrand = 'c-sidebar-brand-full';
       img.push(this.navbarBrandImg(props, classBrand, img.length + 1));
     }
     if (this.props.minimized) {
       const props = this.props.minimized;
-      const classBrand = 'navbar-brand-minimized';
+      const classBrand = 'c-sidebar-brand-minimized';
       img.push(this.navbarBrandImg(props, classBrand, img.length + 1));
     }
+
+    delete attributes.brand;
+    delete attributes.full;
+    delete attributes.minimized;
 
     return (
       <Tag {...attributes} className={classes}>
@@ -74,7 +78,7 @@ class AppNavbarBrand extends Component {
   }
 }
 
-AppNavbarBrand.propTypes = propTypes;
-AppNavbarBrand.defaultProps = defaultProps;
+AppSidebarBrand.propTypes = propTypes;
+AppSidebarBrand.defaultProps = defaultProps;
 
-export default AppNavbarBrand;
+export default AppSidebarBrand;

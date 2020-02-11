@@ -15,7 +15,7 @@ const defaultProps = {
 class AppSidebarForm extends Component {
   render() {
     const { className, children, tag: Tag, ...attributes } = this.props;
-    const classes = classNames(className, 'sidebar-form');
+    const classes = classNames(className, 'c-sidebar-form');
     const form = children ? 
       <Tag className={classes} {...attributes} >
         {children}

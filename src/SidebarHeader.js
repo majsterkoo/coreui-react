@@ -15,7 +15,7 @@ const defaultProps = {
 class AppSidebarHeader extends Component {
   render() {
     const { className, children, tag: Tag, ...attributes } = this.props;
-    const classes = classNames(className, 'sidebar-header');
+    const classes = classNames(className, 'c-sidebar-header');
     const header = children ? 
       <Tag className={classes} {...attributes} >
         {children}

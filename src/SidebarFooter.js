@@ -16,7 +16,7 @@ class AppSidebarFooter extends Component {
   render() {
     const { className, children, tag: Tag, ...attributes } = this.props;
 
-    const classes = classNames(className, 'sidebar-footer');
+    const classes = classNames(className, 'c-sidebar-footer');
     const footer = children ? 
       <Tag className={classes} {...attributes} >
         {children}

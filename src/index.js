@@ -5,7 +5,7 @@ export AppBreadcrumb2 from './Breadcrumb2';
 export AppFooter from './Footer';
 export AppHeader from './Header';
 export AppHeaderDropdown from './HeaderDropdown';
-export AppNavbarBrand from './NavbarBrand';
+export AppSidebarBrand from './SidebarBrand';
 export AppSidebar from './Sidebar';
 export AppSidebarFooter from './SidebarFooter';
 export AppSidebarForm from './SidebarForm';

@@ -35,7 +35,7 @@ class AppSidebarToggler extends Component {
     const [display, mobile] = [this.props.display, this.props.mobile]
     let cssClass = sidebarCssClasses[0]
     if (!mobile && display && checkBreakpoint(display, validBreakpoints)) {
-      cssClass = `sidebar-${display}-show`
+      cssClass = `c-sidebar-${display}-show`
     }
     toggleClasses(cssClass, sidebarCssClasses, force)
   }
@@ -46,7 +46,7 @@ class AppSidebarToggler extends Component {
     delete attributes.mobile
     delete attributes.display
 
-    const classes = classNames(className, 'navbar-toggler');
+    const classes = classNames(className, 'c-header-toggler', 'c-class-toggler', 'mfe-auto');
 
     return (
       <Tag type="button" className={classes} {...attributes} onClick={(event)=>this.sidebarToggle(event)} data-sidebar-toggler>

@@ -22,6 +22,7 @@ const propTypes = {
 
 const defaultProps = {
   tag: 'div',
+  id: 'sidebar',
   compact: false,
   display: '',
   fixed: false,
@@ -30,9 +31,14 @@ const defaultProps = {
   offCanvas: false
 };
 
+/**
+ * TODO unfoldabled with minimized as optionally??
+ */
 class AppSidebar extends Component {
   constructor(props) {
     super(props);
+
+    this.sidebar = null;
 
     this.isCompact = this.isCompact.bind(this);
     this.isFixed = this.isFixed.bind(this);
@@ -43,6 +49,7 @@ class AppSidebar extends Component {
   }
 
   componentDidMount() {
+    if(this.sidebar === null) this.sidebar = document.getElementById('sidebar');
     this.displayBreakpoint(this.props.display);
     this.isCompact(this.props.compact);
     this.isFixed(this.props.fixed);
@@ -51,11 +58,11 @@ class AppSidebar extends Component {
   }
 
   isCompact(compact) {
-    if (compact) { document.body.classList.add('sidebar-compact'); }
+    if (compact) { this.sidebar.classList.add('c-sidebar-compact'); }
   }
 
   isFixed(fixed) {
-    if (fixed) { document.body.classList.add('sidebar-fixed'); }
+    if (fixed) { this.sidebar.classList.add('c-sidebar-fixed'); }
   }
 
   isMinimized(minimized) {
@@ -63,26 +70,26 @@ class AppSidebar extends Component {
   }
 
   isOffCanvas(offCanvas) {
-    if (offCanvas) { document.body.classList.add('sidebar-off-canvas'); }
+    if (offCanvas) { this.sidebar.classList.add('sidebar-off-canvas'); }
   }
 
   displayBreakpoint(display) {
-    const cssTemplate = `sidebar-${display}-show`;
+    const cssTemplate = `c-sidebar-${display}-show`;
     let [cssClass] = sidebarCssClasses[0];
     if (display && sidebarCssClasses.indexOf(cssTemplate) > -1) {
       cssClass = cssTemplate;
     }
-    document.body.classList.add(cssClass);
+    this.sidebar.classList.add(cssClass);
   }
 
   hideMobile() {
-    if (document.body.classList.contains('sidebar-show')) {
-      document.body.classList.remove('sidebar-show');
+    if (this.sidebar.classList.contains('c-sidebar-show')) {
+      this.sidebar.classList.remove('c-sidebar-show');
     }
   }
 
   onClickOut(e) {
-    if (typeof window !== 'undefined' && document.body.classList.contains('sidebar-show')) {
+    if (typeof window !== 'undefined' && this.sidebar.classList.contains('c-sidebar-show')) {
       if (!e.target.closest('[data-sidebar-toggler]')) {
         this.hideMobile();
       }
@@ -100,7 +107,7 @@ class AppSidebar extends Component {
     delete attributes.isOpen
     delete attributes.staticContext
 
-    const classes = classNames(className, 'sidebar');
+    const classes = classNames(className, 'c-sidebar');
 
     // sidebar-nav root
     return (

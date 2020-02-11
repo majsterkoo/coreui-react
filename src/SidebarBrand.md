@@ -1,4 +1,4 @@
-### CoreUI `NavbarBrand` component
+### CoreUI `SidebarBrand` component
 
 
 prop | default
@@ -13,12 +13,12 @@ minimized | `{src, width, height, alt, className: 'navbar-brand-minimized' }`
 
 example:
 ```js
-import { AppNavbarBrand } from '@coreui/react';
+import { AppSidebarBrand } from '@coreui/react';
 import logo from './logo.svg'
 import sygnet from './sygnet.svg'
 
 const full= { src: logo, width: 89, height: 25, alt: 'CoreUI Logo' }
 const minimized= { src: sygnet, width: 30, height: 30, alt: 'CoreUI Logo' }
 
-<AppNavbarBrand full={full} minimized={minimized} />
+<AppSidebarBrand full={full} minimized={minimized} />
 ```

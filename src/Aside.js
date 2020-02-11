@@ -16,6 +16,7 @@ const propTypes = {
 
 const defaultProps = {
   tag: 'aside',
+  id: 'aside',
   display: '',
   fixed: false,
   isOpen: false,
@@ -38,17 +39,17 @@ class AppAside extends Component {
   }
 
   isFixed(fixed) {
-    if (fixed) { document.body.classList.add('aside-menu-fixed'); }
+    if (fixed) { document.body.classList.add('c-sidebar-fixed'); }
   }
 
   isOffCanvas(offCanvas) {
-    if (offCanvas) { document.body.classList.add('aside-menu-off-canvas'); }
+    if (offCanvas) { document.body.classList.add('c-sidebar-off-canvas'); }
   }
 
   displayBreakpoint(display) {
     if (display && checkBreakpoint(display, validBreakpoints)) {
-      const cssClass = `aside-menu-${display}-show`
-      toggleClasses(cssClass, asideMenuCssClasses, true)
+      const cssClass = `c-sidebar-${display}-show`
+      toggleClasses(cssClass, asideMenuCssClasses, true, this.props.id);
     }
   }
 
@@ -60,7 +61,7 @@ class AppAside extends Component {
     delete attributes.offCanvas
     delete attributes.isOpen
 
-    const classes = classNames(className, 'aside-menu');
+    const classes = classNames(className, 'c-sidebar', 'c-sidebar-right', 'c-sidebar-overlaid', 'c-sidebar-light');
 
     return (
       <Tag {...attributes} className={classes}>

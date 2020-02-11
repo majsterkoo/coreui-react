@@ -1,6 +1,6 @@
 {
   "name": "@coreui/react",
-  "version": "2.5.4",
+  "version": "3.0.0-beta.0",
   "description": "CoreUI React Bootstrap 4 components",
   "license": "MIT",
   "author": {
@@ -44,7 +44,7 @@
     "reactstrap": "^8.0.1"
   },
   "peerDependencies": {
-    "@coreui/coreui": "^2.1.12",
+    "@coreui/coreui": "3.0.0-rc.0",
     "react": "^16.10.1",
     "react-router-dom": "^5.1.2"
   },

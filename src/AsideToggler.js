@@ -38,9 +38,9 @@ class AppAsideToggler extends Component {
     const [display, mobile] = [this.props.display, this.props.mobile];
     let cssClass = asideMenuCssClasses[0];
     if (!mobile && display && checkBreakpoint(display, validBreakpoints)) {
-      cssClass = `aside-menu-${display}-show`
+      cssClass = `c-sidebar-${display}-show`
     }
-    toggleClasses(cssClass, asideMenuCssClasses, force)
+    toggleClasses(cssClass, asideMenuCssClasses, force, 'aside')
   }
 
   asideToggle(e) {

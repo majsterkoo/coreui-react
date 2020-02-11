@@ -99,21 +99,21 @@ class AppSwitch extends Component {
 
     const classes = classNames(
       className,
-      'switch',
-      label ? 'switch-label' : false,
-      size ? `switch-${size}` : false,
-      variant ? `switch-${variant}` : false,
-      `switch${outline ? '-outline' : ''}-${color}${outline==='alt' ? '-alt' : ''}`,
+      'c-switch',
+      label ? 'c-switch-label' : false,
+      size ? `c-switch-${size}` : false,
+      variant ? `c-switch-${variant}` : false,
+      `c-switch${outline ? '-outline' : ''}-${color}${outline==='alt' ? '-alt' : ''}`,
       'form-check-label',
     );
 
     const inputClasses = classNames(
-      'switch-input',
+      'c-switch-input',
       'form-check-input',
     );
 
     const sliderClasses = classNames(
-      'switch-slider',
+      'c-switch-slider',
     );
 
     return (

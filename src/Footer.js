@@ -26,7 +26,7 @@ class AppFooter extends Component {
   }
 
   isFixed(fixed) {
-    if (fixed) { document.body.classList.add('footer-fixed'); }
+    //if (fixed) { document.body.classList.add('c-footer-fixed'); }
   }
 
   render() {
@@ -34,7 +34,7 @@ class AppFooter extends Component {
 
     delete attributes.fixed
 
-    const classes = classNames(className, 'app-footer');
+    const classes = classNames(className, 'c-footer');
 
     return (
       <Tag className={classes} {...attributes}>

@@ -18,7 +18,7 @@ const propTypes = {
 };
 
 const defaultProps = {
-  tag: 'nav',
+  tag: 'div',
   navConfig: {
     items: [
       {
@@ -43,18 +43,18 @@ class AppSidebarNav2 extends Component {
 
   handleClick(e) {
     e.preventDefault();
-    e.currentTarget.parentElement.classList.toggle('open');
+    e.currentTarget.parentElement.classList.toggle('c-show');
   }
 
   activeRoute(routeName, props) {
     return props.location.pathname.indexOf(routeName) > -1
-      ? 'nav-item nav-dropdown open'
-      : 'nav-item nav-dropdown';
+      ? 'c-sidebar-nav-dropdown c-show'
+      : 'c-sidebar-nav-dropdown';
   }
 
   hideMobile() {
-    if (document.body.classList.contains('sidebar-show')) {
-      document.body.classList.toggle('sidebar-show');
+    if (document.body.classList.contains('c-sidebar-show')) {
+      document.body.classList.toggle('c-sidebar-show');
     }
   }
 
@@ -80,7 +80,7 @@ class AppSidebarNav2 extends Component {
 
   // nav list section title
   navTitle(title, key) {
-    const classes = classNames('nav-title', title.class, title.className);
+    const classes = classNames('c-sidebar-nav-title', title.class, title.className);
     return <li key={key} className={classes}>{this.navWrapper(title)} </li>;
   }
 
@@ -91,7 +91,7 @@ class AppSidebarNav2 extends Component {
 
   // nav list divider
   navDivider(divider, key) {
-    const classes = classNames('divider', divider.class, divider.className);
+    const classes = classNames('c-sidebar-nav-divider', divider.class, divider.className);
     return <li key={key} className={classes} />;
   }
 
@@ -99,9 +99,9 @@ class AppSidebarNav2 extends Component {
   navLabel(item, key) {
     const classes = {
       item: classNames('hidden-cn', item.class),
-      link: classNames('nav-label', item.class ? item.class : ''),
+      link: classNames('c-sidebar-nav-label', item.class ? item.class : ''),
       icon: classNames(
-        'nav-icon',
+        'c-sidebar-nav-icon',
         !item.icon ? 'fa fa-circle' : item.icon,
         item.label.variant ? `text-${item.label.variant}` : '',
         item.label.class ? item.label.class : '',
@@ -114,9 +114,9 @@ class AppSidebarNav2 extends Component {
 
   // nav dropdown
   navDropdown(item, key) {
-    const classIcon = classNames('nav-icon', item.icon);
+    const classIcon = classNames('c-sidebar-nav-icon', item.icon);
     const attributes = this.getAttribs(item.attributes);
-    const classes = classNames('nav-link', 'nav-dropdown-toggle', item.class, attributes.class, attributes.className);
+    const classes = classNames('c-sidebar-nav-dropdown-toggle', item.class, attributes.class, attributes.className);
     delete attributes.class;
     delete attributes.className;
     const itemAttr = this.getAttribs(item.itemAttr);
@@ -128,7 +128,7 @@ class AppSidebarNav2 extends Component {
         <a className={classes} href="#" onClick={this.handleClick} {...attributes}><i className={classIcon}/>
           {item.name}{this.navBadge(item.badge)}
         </a>
-        <ul className="nav-dropdown-items">
+        <ul className="c-sidebar-nav-dropdown-items">
           {this.navList(item.children)}
         </ul>
       </li>);
@@ -138,8 +138,8 @@ class AppSidebarNav2 extends Component {
   navItem(item, key) {
     const classes = {
       item: classNames(item.class),
-      link: classNames('nav-link', item.variant ? `nav-link-${item.variant}` : ''),
-      icon: classNames('nav-icon', item.icon)
+      link: classNames('c-sidebar-nav-link', item.variant ? `c-sidebar-nav-link-${item.variant}` : ''),
+      icon: classNames('c-sidebar-nav-icon', item.icon)
     };
     return (
       this.navLink(item, key, classes)
@@ -156,12 +156,12 @@ class AppSidebarNav2 extends Component {
     delete attributes.class;
     delete attributes.className;
     const itemAttr = this.getAttribs(item.itemAttr)
-    classes.item = classNames(classes.item, itemAttr.class, itemAttr.className)
+    classes.item = classNames(classes.item, itemAttr.class, itemAttr.className, 'c-sidebar-nav-item')
     delete itemAttr.class;
     delete itemAttr.className;
     const NavLink = this.props.router.NavLink || RsNavLink
     return (
-      <NavItem key={key} className={classes.item} {...itemAttr}>
+      <li key={key} className={classes.item} {...itemAttr}>
         { attributes.disabled ?
             <RsNavLink href={''} className={classes.link} {...attributes}>
               {itemIcon}{item.name}{itemBadge}
@@ -175,7 +175,7 @@ class AppSidebarNav2 extends Component {
               {itemIcon}{item.name}{itemBadge}
             </NavLink>
         }
-      </NavItem>
+      </li>
     );
   }
 
@@ -208,18 +208,20 @@ class AppSidebarNav2 extends Component {
     delete attributes.Tag
     delete attributes.router
 
-    const navClasses = classNames(className, 'sidebar-nav');
+    const navClasses = classNames(className, 'c-sidebar-nav');
 
     // ToDo: find better rtl fix
     const isRtl = getComputedStyle(document.documentElement).direction === 'rtl'
 
     // sidebar-nav root
     return (
-      <PerfectScrollbar className={navClasses} {...attributes} options={{ suppressScrollX: !isRtl }} >
-        <Nav>
+      <React.Fragment> 
+        {/*<PerfectScrollbar className={navClasses} {...attributes} options={{ suppressScrollX: !isRtl }} >*/}
+        <ul className="c-sidebar-nav">
           {children || this.navList(navConfig.items)}
-        </Nav>
-      </PerfectScrollbar>
+        </ul>
+        {/*</PerfectScrollbar>*/}
+      </React.Fragment>
     );
   }
 }
