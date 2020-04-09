@@ -78,29 +78,26 @@ class DefaultLayout extends Component {
           <NavItem className="d-md-down-none c-header-nav-item mx-2">
             <NavLink to="#" className="c-header-nav-link"><i className="cil-location-pin c-icon"></i><Badge pill color="info">7</Badge></NavLink>
           </NavItem>
-          <UncontrolledDropdown nav direction="down" className="c-header-nav-item mr-4">
+          <UncontrolledDropdown nav direction="down" className="c-header-nav-item">
             <DropdownToggle tag='a' className="c-header-nav-link" href="#">
-              <i className={"fas fa-user"} />
-              TODO user icon
-              {/*<img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />*/}
+              <div className="c-avatar">
+                <img src={avatar} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
+              </div>
             </DropdownToggle>
-            <DropdownMenu right>
-              
-              {/*<DropdownItem header tag="div" className="text-center"><strong>Účet</strong></DropdownItem>
-              <Link to="/account/settings"><DropdownItem><i className="fa fa-wrench"></i>Nastavení</DropdownItem></Link>*/}
-              <DropdownItem><i className="fa fa-bell-o"></i> Updates<Badge color="info">42</Badge></DropdownItem>
-              <DropdownItem><i className="fa fa-envelope-o"></i> Messages<Badge color="success">42</Badge></DropdownItem>
-              <DropdownItem><i className="fa fa-tasks"></i> Tasks<Badge color="danger">42</Badge></DropdownItem>
-              <DropdownItem><i className="fa fa-comments"></i> Comments<Badge color="warning">42</Badge></DropdownItem>
-              <DropdownItem header tag="div" className="bg-light py-2 text-dark"><strong>Správa</strong></DropdownItem>
-              {/*<Link to="/management/users"><DropdownItem><i className="fa fa-user"></i>Uživatelé</DropdownItem></Link>*/}
-              <DropdownItem><i className="fa fa-user"></i> Profile</DropdownItem>
-              <DropdownItem><i className="fa fa-wrench"></i> Settings</DropdownItem>
-              <DropdownItem><i className="fa fa-usd"></i> Payments<Badge color="secondary">42</Badge></DropdownItem>
-              <DropdownItem><i className="fa fa-file"></i> Projects<Badge color="primary">42</Badge></DropdownItem>
+            <DropdownMenu right className="pt-0" style={{width: '180px'}}>
+              <div className="dropdown-header bg-light py-2"><strong>Account</strong></div>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-bell"></i> Updates<Badge color="info" className="mfs-auto">42</Badge></DropdownItem>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-envelope-open"></i> Messages<Badge color="success" className="mfs-auto">42</Badge></DropdownItem>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-task"></i> Tasks<Badge color="danger" className="mfs-auto">42</Badge></DropdownItem>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-comment-square"></i> Comments<Badge color="warning" className="mfs-auto">42</Badge></DropdownItem>
+              <div className="dropdown-header bg-light py-2"><strong>Settings</strong></div>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-user"></i> Profile</DropdownItem>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-settings"></i> Settings</DropdownItem>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-credit-card"></i> Payments<Badge color="secondary" className="mfs-auto">42</Badge></DropdownItem>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-file"></i> Projects<Badge color="primary" className="mfs-auto">42</Badge></DropdownItem>
               <DropdownItem divider />
-              {/*<DropdownItem><i className="fa fa-shield"></i> Lock Account</DropdownItem>*/}
-              <DropdownItem onClick={e => {}}><i className="fa fa-lock"></i> Odhlásit se</DropdownItem>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-lock-locked"></i> Lock Account</DropdownItem>
+              <DropdownItem tag='a'><i className="c-icon mfe-2 cil-account-logout"></i> Logout</DropdownItem>
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
