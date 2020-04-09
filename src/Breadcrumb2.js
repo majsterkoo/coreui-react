@@ -55,7 +55,7 @@ const Breadcrumbs2 = (args) => {
   const paths = getPaths(args.location.pathname);
   const items = paths.map((path, i) => <Route key={i.toString()} path={path} component={BreadcrumbsItem2} />);
   return (
-    <Breadcrumb>
+    <Breadcrumb listClassName="border-0 m-0">
       {items}
     </Breadcrumb>
   );
@@ -91,7 +91,7 @@ class AppBreadcrumb2 extends Component {
     delete attributes.appRoutes
     delete attributes.router
 
-    const classes = classNames(className);
+    const classes = classNames('c-subheader', 'justify-content-between', className);
 
     const Route = router.Route;
 

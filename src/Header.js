@@ -15,13 +15,13 @@ const defaultProps = {
 };
 
 class AppHeader extends Component {
-  /*componentDidMount() {
+  componentDidMount() {
     this.isFixed(this.props.fixed);
   }
 
   isFixed(fixed) {
     if (fixed) { document.body.classList.add('c-header-fixed'); }
-  }*/
+  }
 
   // breakpoint(breakpoint) {
   //   return breakpoint || '';
@@ -31,9 +31,9 @@ class AppHeader extends Component {
     const { className, children, tag: Tag, ...attributes } = this.props;
     const fixed_class = this.props.fixed ? 'c-header-fixed' : '';
 
-    delete attributes.fixed
+    delete attributes.fixed;
 
-    const classes = classNames(className, 'c-header', 'c-header-light', 'c-header-with-subheader', fixed_class);
+    const classes = classNames(className, 'c-header', 'c-header-light', fixed_class);
 
     return (
       <Tag className={classes} {...attributes}>

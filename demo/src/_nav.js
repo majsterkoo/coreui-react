@@ -3,7 +3,7 @@ export default {
     {
       name: 'Dashboard',
       url: '/dashboard',
-      icon: 'cui-speedometer icons',
+      icon: 'cil-speedometer icons',
       badge: {
         variant: 'info',
         text: 'NEW'
@@ -12,100 +12,100 @@ export default {
     {
       name: 'Disabled',
       url: '/dashboard',
-      icon: 'cui-ban icons',
+      icon: 'cil-ban icons',
       attributes: { disabled: true },
     },
     {
       name: 'Base',
       url: '/base',
-      icon: 'icon-puzzle',
+      icon: 'cil-puzzle icons',
       children: [
         {
           name: 'Breadcrumbs',
           url: '/base/breadcrumbs',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Cards',
           url: '/base/cards',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Carousels',
           url: '/base/carousels',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Collapses',
           url: '/base/collapses',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Dropdowns',
           url: '/base/dropdowns',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Forms',
           url: '/base/forms',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Jumbotrons',
           url: '/base/jumbotrons',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'List groups',
           url: '/base/list-groups',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Navs',
           url: '/base/navs',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Paginations',
           url: '/base/paginations',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Popovers',
           url: '/base/popovers',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Progress Bar',
           url: '/base/progress-bar',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Switches',
           url: '/base/switches',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Tables',
           url: '/base/tables',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Tabs',
           url: '/base/tabs',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
         {
           name: 'Tooltips',
           url: '/base/tooltips',
-          icon: 'icon-puzzle',
+          icon: 'cil-puzzle icons',
         },
       ],
     },
     {
       name: 'Download CoreUI',
       url: 'https://coreui.io/react/',
-      icon: 'cui-cloud-download icons',
+      icon: 'cil-cloud-download icons',
       class: 'mt-auto',
       variant: 'success',
       attributes: { target: '_blank', rel: "noopener" },
@@ -113,7 +113,7 @@ export default {
     {
       name: 'Try CoreUI PRO',
       url: 'https://coreui.io/pro/react/',
-      icon: 'cui-layers icons',
+      icon: 'cil-layers icons',
       variant: 'danger',
       attributes: { target: '_blank', rel: "noopener" },
     },

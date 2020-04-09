@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import * as router from 'react-router-dom';
-import { Container, Nav, NavItem, NavLink, Badge, DropdownToggle, DropdownMenu } from 'reactstrap';
+import { Container, Nav, NavItem, NavLink, Badge, DropdownToggle, DropdownMenu, UncontrolledDropdown, DropdownItem } from 'reactstrap';
 
 import {
   AppAside,
@@ -40,7 +40,6 @@ class DefaultLayout extends Component {
           />
           <AppSidebarHeader />
           <AppSidebarForm />
-          {/*<AppSidebarNav navConfig={navigation} {...this.props} />*/}
           <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
           <AppSidebarFooter />
           <AppSidebarMinimizer />
@@ -49,32 +48,59 @@ class DefaultLayout extends Component {
           <AppHeader fixed>
             <AppSidebarToggler className="d-lg-none" display="md" mobile />
             <AppSidebarToggler className="d-md-down-none" display="lg" />
-            <ul className="c-header-nav">
-              <li className="d-md-down-none c-header-nav-item">
-                <NavLink href="#" className="c-header-nav-link"><i className="cui-bell icons font-xl d-block"></i><Badge pill color="danger">5</Badge></NavLink>
-              </li>
-              <li className="d-md-down-none c-header-nav-item">
-                <NavLink href="#"><i className="c-header-nav-link cui-list icons icons font-xl d-block"></i></NavLink>
-              </li>
-              <li className="d-md-down-none c-header-nav-item">
-                <NavLink href="#"><i className="c-header-nav-link cui-location-pin icons icons font-xl d-block"></i></NavLink>
-              </li>
-              <AppHeaderDropdown className="c-header-nav-item">
-                <DropdownToggle nav className="c-header-nav-link" >
-                  <img src={avatar} className="c-avatar-img" alt="admin@bootstrapmaster.com" />
-                </DropdownToggle>
-                <DropdownMenu right style={{ height: '400px' }}>
-                  AppHeaderDropdown
-                </DropdownMenu>
-              </AppHeaderDropdown>
-            </ul>
-            <AppAsideToggler className="d-md-down-none" />
-            <AppAsideToggler className="d-lg-none" mobile />
+            <Nav className="c-header-nav d-md-down-none">
+              <NavItem>
+                <NavLink to="#" className="c-header-nav-link px-3">Dashboard</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#" className="c-header-nav-link px-3">Users</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink to="#" className="c-header-nav-link px-3">Settings</NavLink>
+              </NavItem>
+            </Nav>
+          <Nav className="c-header-nav mfs-auto">  
+          <NavItem className="d-md-down-none c-header-nav-item mx-2">
+            <NavLink to="#" className="c-header-nav-link"><i className="cil-bell c-icon"></i><Badge pill color="danger">5</Badge></NavLink>
+          </NavItem>
+          <NavItem className="d-md-down-none c-header-nav-item mx-2">
+            <NavLink to="#" className="c-header-nav-link"><i className="cil-list c-icon"></i><Badge pill color="warning">15</Badge></NavLink>
+          </NavItem>
+          <NavItem className="d-md-down-none c-header-nav-item mx-2">
+            <NavLink to="#" className="c-header-nav-link"><i className="cil-location-pin c-icon"></i><Badge pill color="info">7</Badge></NavLink>
+          </NavItem>
+          <UncontrolledDropdown nav direction="down" className="c-header-nav-item mr-4">
+            <DropdownToggle tag='a' className="c-header-nav-link" href="#">
+              <i className={"fas fa-user"} />
+              TODO user icon
+              {/*<img src={'../../assets/img/avatars/6.jpg'} className="img-avatar" alt="admin@bootstrapmaster.com" />*/}
+            </DropdownToggle>
+            <DropdownMenu right>
+              
+              {/*<DropdownItem header tag="div" className="text-center"><strong>Účet</strong></DropdownItem>
+              <Link to="/account/settings"><DropdownItem><i className="fa fa-wrench"></i>Nastavení</DropdownItem></Link>*/}
+              <DropdownItem><i className="fa fa-bell-o"></i> Updates<Badge color="info">42</Badge></DropdownItem>
+              <DropdownItem><i className="fa fa-envelope-o"></i> Messages<Badge color="success">42</Badge></DropdownItem>
+              <DropdownItem><i className="fa fa-tasks"></i> Tasks<Badge color="danger">42</Badge></DropdownItem>
+              <DropdownItem><i className="fa fa-comments"></i> Comments<Badge color="warning">42</Badge></DropdownItem>
+              <DropdownItem header tag="div" className="bg-light py-2 text-dark"><strong>Správa</strong></DropdownItem>
+              {/*<Link to="/management/users"><DropdownItem><i className="fa fa-user"></i>Uživatelé</DropdownItem></Link>*/}
+              <DropdownItem><i className="fa fa-user"></i> Profile</DropdownItem>
+              <DropdownItem><i className="fa fa-wrench"></i> Settings</DropdownItem>
+              <DropdownItem><i className="fa fa-usd"></i> Payments<Badge color="secondary">42</Badge></DropdownItem>
+              <DropdownItem><i className="fa fa-file"></i> Projects<Badge color="primary">42</Badge></DropdownItem>
+              <DropdownItem divider />
+              {/*<DropdownItem><i className="fa fa-shield"></i> Lock Account</DropdownItem>*/}
+              <DropdownItem onClick={e => {}}><i className="fa fa-lock"></i> Odhlásit se</DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        </Nav>
+          <AppAsideToggler className="d-lg-none" mobile />
+          <AppBreadcrumb appRoutes={routes} router={router}/>
           </AppHeader>
           <div className="c-body">
             <main className="c-main">
               {/*<AppBreadcrumb appRoutes={routes}/>*/}
-              {/*<AppBreadcrumb appRoutes={routes} router={router}/>*/}
               <Container fluid>
                 <Switch>
                   {routes.map((route, idx) => {
@@ -93,10 +119,10 @@ class DefaultLayout extends Component {
             </AppAside>
           </div>
         </div>
-        <AppFooter>
+        {/*<AppFooter>
           <span><a href="https://coreui.io">CoreUI</a> &copy; 2019 creativeLabs</span>
           <span className="ml-auto">Powered by <a href="https://coreui.io/react">CoreUI for React</a></span>
-        </AppFooter>
+        </AppFooter>*/}
       </div>
     );
   }

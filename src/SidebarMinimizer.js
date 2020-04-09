@@ -24,7 +24,7 @@ class AppSidebarMinimizer extends Component {
   }
 
   componentDidMount() {
-    const isMinimized = document.body.classList.contains('c-sidebar-minimized');
+    const isMinimized = document.getElementById('sidebar').classList.contains('c-sidebar-unfoldable');
     LayoutHelper.sidebarPSToggle(!isMinimized)
   }
 
@@ -35,7 +35,7 @@ class AppSidebarMinimizer extends Component {
   render() {
     const { className, children, tag: Tag, type, ...attributes } = this.props;
 
-    const classes = classNames(className, 'c-sidebar-minimizer', 'mt-auto');
+    const classes = classNames(className, 'c-sidebar-lg-show c-sidebar-minimizer c-class-toggler', 'mt-auto');
 
     return (
       <Tag className={classes} type={type} {...attributes} onClick={(event)=>this.handleClick(event)} >

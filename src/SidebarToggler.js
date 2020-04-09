@@ -37,7 +37,7 @@ class AppSidebarToggler extends Component {
     if (!mobile && display && checkBreakpoint(display, validBreakpoints)) {
       cssClass = `c-sidebar-${display}-show`
     }
-    toggleClasses(cssClass, sidebarCssClasses, force)
+    toggleClasses(cssClass, sidebarCssClasses, force, 'sidebar')
   }
 
   render() {
@@ -46,11 +46,11 @@ class AppSidebarToggler extends Component {
     delete attributes.mobile
     delete attributes.display
 
-    const classes = classNames(className, 'c-header-toggler', 'c-class-toggler', 'mfe-auto');
+    const classes = classNames(className, 'c-header-toggler', 'c-class-toggler', /*'mfe-auto'*/);
 
     return (
       <Tag type="button" className={classes} {...attributes} onClick={(event)=>this.sidebarToggle(event)} data-sidebar-toggler>
-        {children || <span className="navbar-toggler-icon" />}
+        {children || <i className="c-icon c-icon-lg cil-menu" />}
       </Tag>
     );
   }
