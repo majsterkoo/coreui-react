@@ -41,6 +41,15 @@ class DefaultLayout extends Component {
           <AppSidebarHeader />
           <AppSidebarForm />
           <AppSidebarNav navConfig={navigation} {...this.props} router={router}/>
+          <AppAside fixed>
+            <Nav nav className="nav-tabs nav-underline nav-underline-primary">
+              <NavItem>
+                <NavLink href="#">
+                  <i className="c-icon cil-list" />
+                </NavLink>
+              </NavItem>
+            </Nav>
+          </AppAside>
           <AppSidebarFooter />
           <AppSidebarMinimizer />
         </AppSidebar>
@@ -95,7 +104,7 @@ class DefaultLayout extends Component {
             </DropdownMenu>
           </UncontrolledDropdown>
         </Nav>
-          <AppAsideToggler className="d-lg-none" mobile />
+          <AppAsideToggler /*className="d-lg-none"*/ mobile />
           <AppBreadcrumb appRoutes={routes} router={router}/>
           </AppHeader>
           <div className="c-body">
@@ -114,9 +123,6 @@ class DefaultLayout extends Component {
                 </Switch>
               </Container>
             </main>
-            <AppAside fixed>
-              Aside
-            </AppAside>
           </div>
         </div>
         {/*<AppFooter>

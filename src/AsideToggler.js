@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
-import { asideMenuCssClasses, validBreakpoints, checkBreakpoint } from './Shared/index';
+import { sidebarCssClasses, validBreakpoints, checkBreakpoint } from './Shared/index';
 import toggleClasses from './Shared/toggle-classes';
 
 const propTypes = {
@@ -36,11 +36,11 @@ class AppAsideToggler extends Component {
 
   toggle (force) {
     const [display, mobile] = [this.props.display, this.props.mobile];
-    let cssClass = asideMenuCssClasses[0];
+    let cssClass = sidebarCssClasses[0];
     if (!mobile && display && checkBreakpoint(display, validBreakpoints)) {
       cssClass = `c-sidebar-${display}-show`
     }
-    toggleClasses(cssClass, asideMenuCssClasses, force, 'aside')
+    toggleClasses(cssClass, sidebarCssClasses, force, 'aside')
   }
 
   asideToggle(e) {
@@ -55,7 +55,7 @@ class AppAsideToggler extends Component {
     delete attributes.display;
     delete attributes.mobile;
 
-    const classes = classNames(className, 'navbar-toggler');
+    const classes = classNames(className, 'c-header-toggler', 'c-class-toggler', 'mfe-md-3');
 
     return (
       <Tag
@@ -64,7 +64,7 @@ class AppAsideToggler extends Component {
           {...attributes}
           onClick={(event)=>this.asideToggle(event)}
       >
-        {children || <span className="navbar-toggler-icon" />}
+        {children || <i className="c-icon c-icon-lg cil-applications-settings" />}
       </Tag>
     );
   }

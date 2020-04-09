@@ -10,4 +10,5 @@
 | isOpen    | `false`
 | offCanvas | `true`
 | tag       | `aside`
+| size      | `md`
 

@@ -12,6 +12,7 @@ minimized | `false`
 isOpen | `false`
 offCanvas | `false`
 tag | `div`
+size | `md`
 
 
 #### Supported content

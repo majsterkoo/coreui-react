@@ -6,13 +6,14 @@ export const sidebarCssClasses = [
   'c-sidebar-xl-show'
 ];
 
-export const asideMenuCssClasses = [
+//TODO remove
+/*export const asideMenuCssClasses = [
   'c-aside-menu-show',
   'c-aside-menu-sm-show',
   'c-aside-menu-md-show',
   'c-aside-menu-lg-show',
   'c-aside-menu-xl-show'
-];
+];*/
 
 export const validBreakpoints = [ 'sm', 'md', 'lg', 'xl' ]
 
