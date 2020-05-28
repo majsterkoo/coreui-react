@@ -1,6 +1,6 @@
 {
-  "name": "@coreui/react",
-  "version": "3.0.0-beta.0",
+  "name": "coreui-dvmp",
+  "version": "3.0.1",
   "description": "CoreUI React Bootstrap 4 components",
   "license": "MIT",
   "author": {
@@ -38,29 +38,29 @@
     "classnames": "^2.2.6",
     "core-js": "^2.6.9",
     "i": "^0.3.6",
-    "npm": "^6.14.4",
+    "npm": "^6.14.5",
     "prop-types": "^15.7.2",
     "react-onclickout": "^2.0.8",
     "react-perfect-scrollbar": "^1.5.3",
     "reactstrap": "^8.0.1"
   },
   "peerDependencies": {
-    "@coreui/coreui": "^3.0.0",
+    "@coreui/coreui": "^3.0.0-rc.3",
     "@coreui/icons": "^0.3.0",
     "react": "^16.10.1",
     "react-router-dom": "^5.1.2"
   },
   "devDependencies": {
     "@coreui/icons": "^1.0.1",
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "eslint": "^5.16.0",
-    "eslint-plugin-import": "^2.18.2",
-    "eslint-plugin-react": "^7.15.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-react": "^7.19.0",
     "nwb": "^0.23.0",
-    "react": "^16.10.1",
-    "react-dom": "^16.10.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "sinon": "^5.1.1",
     "webpack-dev-server": "^3.8.1"

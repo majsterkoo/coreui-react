@@ -5,7 +5,7 @@ class LayoutHelper {
 
   static sidebarToggle(toggle) {
     if(this.sidebarClassList === null) this.sidebarClassList = document.getElementById('sidebar').classList;
-    const minimize = arguments.length ? toggle : !this.sidebarClassList.contains(/*'c-sidebar-minimized'*/'c-sidebar-unfoldable');
+    const minimize = arguments.length ? toggle : !this.sidebarClassList.contains('c-sidebar-minimized');
     this.sidebarMinimize(minimize);
     //this.brandMinimize(minimize);
     this.sidebarPSToggle(!minimize);  /*remove PS on sidebar minimized*/
@@ -13,7 +13,7 @@ class LayoutHelper {
 
   static sidebarMinimize(force) {
     // return this.elClassList.toggle('sidebar-minimized', force);
-    return this.toggleSidebarClass(/*'c-sidebar-minimized'*/'c-sidebar-unfoldable', force);
+    return this.toggleSidebarClass('c-sidebar-minimized', force);
   }
 
   static brandMinimize(force) {

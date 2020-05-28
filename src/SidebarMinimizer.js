@@ -24,7 +24,7 @@ class AppSidebarMinimizer extends Component {
   }
 
   componentDidMount() {
-    const isMinimized = document.getElementById('sidebar').classList.contains('c-sidebar-unfoldable');
+    const isMinimized = document.getElementById('sidebar').classList.contains('c-sidebar-minimized');
     LayoutHelper.sidebarPSToggle(!isMinimized)
   }
 
